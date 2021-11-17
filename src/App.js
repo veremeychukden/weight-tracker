@@ -14,6 +14,7 @@ const App = observer(()=> {
           <Nav/>
           <Switch>
               <Route exact path="/" component={Home}/>
+              <Route exact path="/calculator" component={Calculator}/>
           </Switch>
           <Footer/>
       </div>
