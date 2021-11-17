@@ -9,7 +9,7 @@ const Nav = observer(()=> {
                 <img className="block" src={logo} alt=""/>
                 <span className="col-span-8"/>
                 <Link className="self-center font-medium text-white" to="/">Home</Link>
-                <Link className="self-center font-medium text-white" to="/About">About</Link>
+                <Link className="self-center font-medium text-white" to="/calculator">Calculator</Link>
                 <Link className="self-center font-medium text-white" to="/Contacts">Contacts</Link>
             </div>
         </div>
