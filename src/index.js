@@ -5,8 +5,8 @@ import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import 'antd/dist/antd.css';
 
-// console.warn = () => {};
-// console.error = () => {};
+console.warn = () => {};
+console.error = () => {};
 const rootElement = document.getElementById('root');
 const app = (
     <BrowserRouter>

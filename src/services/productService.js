@@ -57,6 +57,7 @@ class ProductService{
                 }
             };
             const response = await axios.get('https://fitness-calculator.p.rapidapi.com/idealweight', options);
+            console.log(response)
             userStore.setIdealWeight(response.data.data);
         }catch (err){
             console.log(err);

@@ -4,8 +4,6 @@ import Nav from "./Nav/Nav";
 import Footer from "./Footer/Footer";
 import {Route, Switch} from "react-router-dom";
 import Home from "./Home/Home";
-import {useEffect} from "react";
-import productService from "./services/productService";
 import Calculator from "./Calculator/Calculator";
 import Checker from "./Checker/Checker";
 
