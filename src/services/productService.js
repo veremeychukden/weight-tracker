@@ -1,6 +1,7 @@
 import apiStore from "../stores/apiStore";
 import axios from "axios";
 import productStore from "../stores/productStore";
+import userStore from "../stores/userStore";
 
 class ProductService{
     async getProducts(){
@@ -49,7 +50,27 @@ class ProductService{
                 }
             };
             const response = await axios.get('https://fitness-calculator.p.rapidapi.com/dailycalorie', options);
-            productStore.setDailyCaloryRequirements(response.data.data);
+            userStore.setDailyCaloryRequirements(response.data.data);
+        }catch (err){
+            console.log(err);
+        }finally {
+            apiStore.setIsFetching(false);
+        }
+    }
+
+    async getIdealWeight(gender, height){
+        try{
+            apiStore.setIsFetching(true);
+            var options = {
+                url: 'https://fitness-calculator.p.rapidapi.com/idealweight',
+                params: {gender, height},
+                headers : {
+                    'x-rapidapi-host': 'fitness-calculator.p.rapidapi.com',
+                    'x-rapidapi-key': '3a9f0bd8d9mshfc9e7e523461d44p1f6058jsn8c7cf1b518af'
+                }
+            };
+            const response = await axios.get('https://fitness-calculator.p.rapidapi.com/idealweight', options);
+            userStore.setIdealWeight(response.data.data);
         }catch (err){
             console.log(err);
         }finally {

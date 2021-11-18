@@ -7,6 +7,7 @@ import Home from "./Home/Home";
 import {useEffect} from "react";
 import productService from "./services/productService";
 import Calculator from "./Calculator/Calculator";
+import Checker from "./Checker/Checker";
 
 const App = observer(()=> {
   return (
@@ -15,6 +16,7 @@ const App = observer(()=> {
           <Switch>
               <Route exact path="/" component={Home}/>
               <Route exact path="/calculator" component={Calculator}/>
+              <Route exact path="/checker" component={Checker}/>
           </Switch>
           <Footer/>
       </div>

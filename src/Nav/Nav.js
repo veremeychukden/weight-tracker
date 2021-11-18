@@ -10,7 +10,7 @@ const Nav = observer(()=> {
                 <span className="col-span-8"/>
                 <Link className="self-center font-medium text-white" to="/">Home</Link>
                 <Link className="self-center font-medium text-white" to="/calculator">Calculator</Link>
-                <Link className="self-center font-medium text-white" to="/Contacts">Contacts</Link>
+                <Link className="self-center font-medium text-white" to="/checker">Checker</Link>
             </div>
         </div>
     )

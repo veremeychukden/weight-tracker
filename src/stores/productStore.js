@@ -7,15 +7,13 @@ class ProductStore{
     }
 
     products = [];
-    bodyStatus;
+
 
     setProducts(data){
         this.products = data;
     }
 
-    setDailyCaloryRequirements(data){
-        this.bodyStatus = data;
-    }
+
 
 }
 

@@ -5,6 +5,8 @@ import {useEffect, useState} from "react";
 import productService from "../services/productService";
 import { Slider, Select } from 'antd';
 import {Option} from "antd/es/mentions";
+import Zoom from "react-reveal/Zoom";
+import userStore from "../stores/userStore";
 
 const Calculator = observer(() => {
 
@@ -40,7 +42,7 @@ const Calculator = observer(() => {
     const setDailyCalories = async () => {
         await productService.getDailyCaloriesRequirements(age, gender, height,weight, 'level_1');
         var h = document.getElementById('bmr');
-        h.innerHTML = productStore.bodyStatus.BMR;
+        h.innerHTML = userStore.bodyStatus.BMR;
     }
 
     return (
