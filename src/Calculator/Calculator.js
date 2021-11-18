@@ -2,10 +2,11 @@ import {observer} from "mobx-react-lite";
 import productStore from "../stores/productStore";
 import {useEffect, useState} from "react";
 import productService from "../services/productService";
-import { Slider, Select } from 'antd';
+import {Slider, Select, notification, Button} from 'antd';
 import {Option} from "antd/es/mentions";
 import userStore from "../stores/userStore";
 import calculator from './../images/calculator.svg';
+import {toJS} from "mobx";
 
 const Calculator = observer(() => {
 
@@ -23,9 +24,26 @@ const Calculator = observer(() => {
         console.log(value);
     }
 
+
     const handlerGenderSelect = value => {
         setGender(value);
         console.log(value);
+    }
+
+    const handlerProductChoose = id => {
+        var productElement = document.getElementById(id);
+        console.log(productElement);
+        productElement.classList.add("bg-blue-md");
+        const product = toJS(productStore.products.find(t => t._id === id));
+        productStore.addUserProduct(product)
+        productElement.disabled = true;
+    }
+
+    const resetButtons = () => {
+        for(let i = 0; i < productStore.userProducts.length; i++){
+            var productElement = document.getElementById(productStore.userProducts[i]._id);
+            productElement.disabled = false;
+        }
     }
 
     const handlerHeightSlider = value => {
@@ -46,12 +64,18 @@ const Calculator = observer(() => {
 
     return (
         <div className="calculator bg-cyan-light min-h-screen">
-            <div className="container grid grid-cols-6 gap-5 pt-32 mx-auto">
+            <div className="container mx-auto pt-32">
+                <div className="text-white text-center font-bold text-5xl">Choose products you eat today</div>
+            </div>
+            <div className="container mx-auto">
+                <Button onClick={resetButtons}>Reset</Button>
+            </div>
+            <div className="container grid grid-cols-6 gap-5 pt-16 mx-auto">
                 {
                     productStore.products.map((product) => (
-                        <div key={product._id} className="shadow-lg rounded bg-rose-light justify-self-center self-center w-full">
-                            <h2 className="m-o p-5 text-center text-md font-bold text-gray">{product.foodType.split(',')[0]}</h2>
-                        </div>
+                        <Button onClick={() => handlerProductChoose(product._id)} id={product._id} key={product._id} className="cursor-pointer shadow-lg rounded bg-blue-md justify-self-center self-center w-full">
+                            {product.foodType.split(',')[0]}
+                        </Button>
                     ))
                 }
             </div>
