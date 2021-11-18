@@ -5,7 +5,7 @@ import Fade from "react-reveal/Fade";
 
 const Home = observer(()=> {
     return (
-        <div className="home w-screen h-screen bg-cyan-light">
+        <div className="home h-screen bg-cyan-light">
             <div className="container h-screen mx-auto grid grid-cols-2 gap-10">
                 <div className="self-center">
                     <Fade delay={500}>

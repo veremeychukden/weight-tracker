@@ -8,9 +8,9 @@ const Nav = observer(()=> {
             <div className="container mx-auto grid grid-cols-12">
                 <img className="block" src={logo} alt=""/>
                 <span className="col-span-8"/>
-                <Link className="self-center font-medium text-white" to="/">Home</Link>
-                <Link className="self-center font-medium text-white" to="/calculator">Calculator</Link>
-                <Link className="self-center font-medium text-white" to="/checker">Checker</Link>
+                <Link className="self-center font-medium text-white justify-self-end" to="/">Home</Link>
+                <Link className="self-center font-medium text-white justify-self-end" to="/calculator">Calculator</Link>
+                <Link className="self-center font-medium text-white justify-self-end" to="/checker">Checker</Link>
             </div>
         </div>
     )

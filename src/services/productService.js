@@ -16,21 +16,8 @@ class ProductService{
                 }
             };
             const response = await axios.get('https://fitness-calculator.p.rapidapi.com/foodids', options);
-
-            // for(let i = 0; i < response.data.data.length; i++){
-            //     const response2 = await axios.get('https://api.pexels.com/v1/search', {
-            //         headers: {
-            //             'Authorization': '563492ad6f91700001000001b243e5a7011245c09a73cc06d966bab8'
-            //         },
-            //         params: {
-            //             query: response.data.data[i].foodType.split(',')[0],
-            //             page: 1,
-            //             perPage: 1
-            //         }
-            //     });
-            //     response.data.data[i].imageSrc =  response2.data.photos[0].src.medium;
-            // }
-            productStore.setProducts(response.data.data);
+            const result = response.data.data.filter((v, i, a) => a.findIndex(t => (t.foodType.split(',')[0] === v.foodType.split(',')[0])) === i);
+            productStore.setProducts(result);
         }catch (err){
             console.log(err);
         }finally {

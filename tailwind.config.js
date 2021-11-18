@@ -13,9 +13,12 @@ module.exports = {
         light: '#FFE4E6'
       },
       blue:{
-        light: '#BFDBFE'
+        light: '#BFDBFE',
+        md: '#3B82F6',
+        dark: '#1D4ED8'
       },
-      white: '#FFFFFF'
+      white: '#FFFFFF',
+      gray: '#808080'
     }
   },
   variants: {
